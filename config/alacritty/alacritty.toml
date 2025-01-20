@@ -1,0 +1,130 @@
+general.import = [
+    #"~/.config/alacritty/themes/themes/Fiffel.toml"
+    #"~/.config/alacritty/themes/themes/rose-pine-moon.toml"
+    "~/.config/alacritty/themes/themes/one_dark.toml"
+    #"~/.config/alacritty/themes/themes/catppuccin_macchiato.toml"
+    #"~/.config/alacritty/themes/themes/tokyo-night.toml"
+    #"~/.config/alacritty/themes/themes/tokyo-night-storm.toml"
+    #"~/.config/alacritty/themes/themes/ayu_dark.toml"
+    #"~/.config/alacritty/themes/themes/carbonfox.toml" //////////
+    #"~/.config/alacritty/themes/themes/catppuccin.toml" /////////
+]
+
+[colors.primary]
+#background = '#0F000' # black
+#background = '#011628' # josean bg
+#background = '#14171C' # default nvim bg
+background = '#0F191F' # nvim webpage bg
+##background = '#1E1E2E' # catppuccin mocha
+##background = '#212a30'
+##background = '#232136'
+##background = '#272a34'
+#
+
+[env]
+TERM = "xterm-256color"
+
+[cursor]
+style = "Block"
+
+#---------------------------------------------------------------------
+#[font]
+#size = 20
+#
+#[font.bold]
+#family = "CozetteVector"
+#style = "Medium"
+#
+#[font.bold_italic]
+#family = "CozetteVector"
+#style = "Medium"
+#
+#[font.glyph_offset]
+#x = 0
+#y = 0
+#
+#[font.italic]
+#family = "CozetteVector"
+#style = "Medium"
+#
+#[font.normal]
+#family = "CozetteVector"
+#style = "Medium"
+#
+#[font.offset]
+#x = 1
+#y = 0
+#---------------------------------------------------------------------
+
+[font]
+#normal.family = "MesloLGS Nerd Font Mono"
+normal.family = "JetBrainsMono Nerd Font"
+#normal.family = "RobotoMono Nerd Font"
+#normal.family = "Hack Nerd Font"
+#normal.family = "Cozette"
+#normal.family = "FiraCode Nerd Font"
+#normal.family = "NotoMono Nerd Font"
+#normal.family = "Monoid Nerd Font"
+#normal.family = "3270 Nerd Font"
+#normal.family = "gohufont"
+#normal.family = "Terminess Nerd Font Propo"
+#normal.family = "GoMono Nerd Font Mono"
+#normal.family = "3270 Nerd Font"
+
+# FiraCode
+#normal = { family =  "FiraCode Nerd Font", style = "Light"}
+#bold = { family = "FiraCode Nerd Font", style = "Light"}
+#italic = { family = "FiraCode Nerd Font", style = "Light" }
+#bold_italic = { family = "FiraCode Nerd Font", style = "Light"}
+
+#normal = { family =  "FiraCode Nerd Font", style = "Regular"}
+#bold = { family = "FiraCode Nerd Font", style = "Regular"}
+#italic = { family = "FiraCode Nerd Font", style = "Thin" }
+#bold_italic = { family = "FiraCode Nerd Font", style = "Italic"}
+
+#normal = { family =  "RobotoMono Nerd Font", style = "Regular"}
+#bold = { family = "RobotoMono Nerd Font", style = "Regular"}
+#italic = { family = "RobotoMono Nerd Font", style = "Regular" }
+#bold_italic = { family = "RobotoMono Nerd Font", style = "Italic"}
+#--------------------------------------------------------
+##[font]
+#size = 14
+##
+#[font.bold]
+#family = "Cozette"
+#style = "Medium"
+#
+#[font.bold_italic]
+#family = "Cozette"
+#style = "Medium"
+#
+#[font.glyph_offset]
+#x = 0
+#y = 0
+#
+#[font.italic]
+#family = "Cozette"
+#style = "Medium"
+#
+#[font.normal]
+#family = "Cozette"
+#style = "Medium"
+#
+#[font.offset]
+#x = 1
+#y = 0
+
+[window]
+#option_as_alt = "OnlyLeft" | "OnlyRight" | "Both" | "None" # (macos only)
+#decorations = "None"
+decorations = "Buttonless"
+#opacity = 1
+#opacity = 0.85
+#blur = true
+padding.x = 10
+padding.y = 5
+
+
+
+
+

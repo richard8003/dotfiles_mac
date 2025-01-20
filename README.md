@@ -1,1 +1,3 @@
-# dotfiles_mac
+Dotfiles for MacOS
+=========
+

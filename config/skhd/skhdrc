@@ -1,0 +1,91 @@
+## toggle window fullscreen zoom
+#alt + cmd - o : yabai -m window --toggle zoom-fullscreen
+#
+## focus window
+#
+#alt + cmd - e : yabai -m window --focus south
+#alt + cmd - u : yabai -m window --focus north
+#alt + cmd - i : yabai -m window --focus east \
+          #|| yabai -m window --focus "$((yabai -m query --spaces --display next || yabai -m query --spaces --display first) | jq -re '.[] | select(."is-visible" == true)."first-window"')" \
+          #|| yabai -m display --focus next \
+          #|| yabai -m display --focus first
+#alt + cmd - n  : yabai -m window --focus west \
+          #|| yabai -m window --focus "$((yabai -m query --spaces --display prev || yabai -m query --spaces --display last) | jq -re '.[] | select(."is-visible" == true)."last-window"')" \
+          #|| yabai -m display --focus prev \
+          #|| yabai -m display --focus last
+#
+## send window to desktop
+#alt + cmd - 2 : yabai -m window --display 1; yabai -m display --focus 1 
+#alt + cmd - 3 : yabai -m window --display 2; yabai -m display --focus 2 
+#alt + cmd - 1 : yabai -m window --display 3; yabai -m display --focus 3 
+#
+## move window - COLEMAC
+#alt + cmd - f : yabai -m window --warp north; yabai -m window --move rel:0:-16
+#alt + cmd - s : yabai -m window --warp south; yabai -m window --move rel:0:16
+#alt + cmd - t : yabai -m window --warp east; yabai -m window --move rel:16:00
+#alt + cmd - r : yabai -m window --warp west; yabai -m window --move rel:-15:0
+#
+### toggle window split type
+##ctrl + cmd - space : yabai -m window --toggle split
+#alt + cmd - space : yabai -m window --toggle split
+#
+## float / unfloat window and center on screen
+#alt + cmd - y : yabai -m window --toggle float;\
+           #yabai -m window --grid 20:20:1:1:18:18
+#
+##alt - s : yabai --start-service
+##alt - t : yabai --stop-service
+#ctrl + shift - r : yabai --restart-service
+
+# application shortcuts
+#alt - return : open -a "/Applications/kitty.app"
+#alt - return : open -a "/Applications/Alacritty.app"
+alt - return : open -a "/Applications/Ghostty.app"
+alt - space : open -a "/Applications/Google Chrome.app" 
+alt + shift - x : open -a "/Applications/Spotify.app" 
+#alt - d : open -a "/Applications/Discord.app" 
+alt - d : open -a "/Applications/Brave Browser.app" 
+alt - m : open -a "/Applications/Firefox.app"
+
+## increase region size
+#ctrl + alt - k : yabai -m window --resize right:16:0; yabai -m query --windows --window | jq -re 'select(.floating == 0)' && yabai -m window --resize left:16:0
+#ctrl + alt - j : yabai -m window --resize right:-16:0; yabai -m query --windows --window | jq -re 'select(.floating == 0)' &&  yabai -m window --resize left:-16:0
+#ctrl + alt - l : yabai -m window --resize bottom:0:16; yabai -m query --windows --window | jq -re 'select(.floating == 0)' &&  yabai -m window --resize top:0:16
+#ctrl + alt - h : yabai -m window --resize bottom:0:-16; yabai -m query --windows --window | jq -re 'select(.floating == 0)' &&  yabai -m window --resize top:0:-16
+#
+######################################################################
+############################### Hyper ################################
+######################################################################
+######################################################################
+#
+#hyper - k : yabai -m window --focus south
+#hyper - j : yabai -m window --focus north
+#hyper - l : yabai -m window --focus east \
+        #|| yabai -m window --focus "$((yabai -m query --spaces --display next || yabai -m query --spaces --display first) | jq -re '.[] | select(."is-visible" == true)."first-window"')" \
+        #|| yabai -m display --focus next \
+        #|| yabai -m display --focus first
+#hyper - h  : yabai -m window --focus west \
+          #|| yabai -m window --focus "$((yabai -m query --spaces --display prev || yabai -m query --spaces --display last) | jq -re '.[] | select(."is-visible" == true)."last-window"')" \
+          #|| yabai -m display --focus prev \
+          #|| yabai -m display --focus last
+#
+### equalize size of windows
+#alt - o : yabai -m space --balance
+#hyper - o : yabai -m space --balance
+#
+#ctrl + cmd - h : yabai --start-service
+#ctrl + cmd - n : yabai --stop-service
+#ctrl + cmd - e : yabai --restart-service
+#ctrl + cmd - j : yabai --start-service && yabai --stop-service
+#
+#
+#cmd + shift - o : borders active_color=0xffffffff inactive_color=0xff494d64 width=8.0 2>/dev/null 1>&2 &
+#
+#
+#
+## hyper - return : open -a "/Applications/Alacritty.app"
+#hyper - return : open -a "/Applications/kitty.app"
+#hyper - space : open -a "/Applications/Brave Browser.app" 
+#hyper - u : open -a "/Applications/Spotify.app" 
+#hyper - d : open -a "/Applications/Discord.app" 
+#hyper - m : open -a "/Applications/Firefox.app"

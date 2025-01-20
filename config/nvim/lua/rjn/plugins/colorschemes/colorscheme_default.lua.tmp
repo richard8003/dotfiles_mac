@@ -1,0 +1,15 @@
+return {
+    -- line numbers
+    -- vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#51B3EC", bold = true }),
+    -- vim.api.nvim_set_hl(0, "LineNr", { fg = "#FFA500" }),
+    -- vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#FB508F", bold = true }),
+    --
+    --
+    --
+    -- -- Go
+    -- vim.api.nvim_set_hl(0, "goRepeat", { fg = "#51B3EC" }),      -- for color
+    -- vim.api.nvim_set_hl(0, "goDeclaration", { fg = "#51B3EC" }), -- func color
+    -- vim.api.nvim_set_hl(0, "goDecimalInt", { fg = "orange" }),   -- color int
+    -- vim.api.nvim_set_hl(0, "goParen", { fg = "orange" }),        -- color int
+    -- vim.api.nvim_set_hl(0, "goBlock", { fg = "green" }),
+}
