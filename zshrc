@@ -27,9 +27,7 @@ eval "$(fzf --zsh)"
 export FZF_COMPLETION_TRIGGER='~~'
 
 PROMPT='
-$(gitprompt)
-%{$fg[cyan]%}%~%{$reset_color%}
-%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ ) '
+$(gitprompt) %{$fg[cyan]%}%~%{$reset_color%} %(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ ) '
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}) %{$fg[yellow]%}✗ "
