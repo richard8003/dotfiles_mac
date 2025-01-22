@@ -16,7 +16,8 @@ theme = tokyonight
 
 # background
 #background = #272727
-background = #000000
+background = #1E1E1E
+#background = #000000
 
 
 # hide the title bar

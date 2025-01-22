@@ -1,12 +1,9 @@
 return {
     -- { 'catppuccin/nvim', as = 'catppuccin' },
-    'catppuccin/nvim',
+    "catppuccin/nvim",
     priority = 1000,
     config = function()
         require("catppuccin").setup({
-            -- flavour = "mocha", -- latte, frappe, macchiato, mocha
-            -- flavour = "latte", -- latte, frappe, macchiato, mocha - terrible
-            -- flavour = "frappe", -- latte, frappe, macchiato, mocha
             flavour = "macchiato", -- latte, frappe, macchiato, mocha
             background = {         -- :h background
                 light = "latte",
@@ -37,38 +34,37 @@ return {
                 types = {},
                 operators = {},
             },
-            color_overrides = {
-                -- mocha = {
-                -- -- base = "#FF3333", -- line highlight
-                -- -- blue = "#FF3333", -- method
-                -- -- crust = "#FF3333",
-                -- -- flamingo = "#FF3333", -- curly brases
-                -- -- green = "#FF3333",
-                -- -- lavender = "#5fb950",
-                -- lavender = "#A9D5C4",
-                -- -- mantle = "#FF3333",
-                -- -- maroon = "#FF3333",
-                -- mauve = "#5fb950", -- function()
-                -- -- overlay0 = "#FF3333", -- comments
-                -- -- overlay1 = "#FF3333",
-                -- -- overlay2 = "#FF3333",
-                -- -- peach = "#ffffff", -- booleans
-                -- -- pink = "#FF3333",
-                -- -- red = "#FF3333",
-                -- -- rosewater = "#FF3333",
-                -- -- sapphire = "#FF3333",
-                -- sky = "#FFFFFF", -- = sign för example
-                -- -- subtext0 = "#FF3333",
-                -- -- subtext1 = "#FF3333",
-                -- -- surface0 = "#FF3333",
-                -- -- surface1 = "#FF3333",
-                -- -- surface2 = "#FF3333",
-                -- -- teal = "#FF3333",
-                -- -- text = "#FF3333",
-                -- -- yellow = "#FF3333",
-                -- },
-
-            },
+            -- color_overrides = {
+            -- mocha = {
+            -- -- base = "#FF3333", -- line highlight
+            -- -- blue = "#FF3333", -- method
+            -- -- crust = "#FF3333",
+            -- -- flamingo = "#FF3333", -- curly brases
+            -- -- green = "#FF3333",
+            -- -- lavender = "#5fb950",
+            -- lavender = "#A9D5C4",
+            -- -- mantle = "#FF3333",
+            -- -- maroon = "#FF3333",
+            -- mauve = "#5fb950", -- function()
+            -- -- overlay0 = "#FF3333", -- comments
+            -- -- overlay1 = "#FF3333",
+            -- -- overlay2 = "#FF3333",
+            -- -- peach = "#ffffff", -- booleans
+            -- -- pink = "#FF3333",
+            -- -- red = "#FF3333",
+            -- -- rosewater = "#FF3333",
+            -- -- sapphire = "#FF3333",
+            -- sky = "#FFFFFF", -- = sign för example
+            -- -- subtext0 = "#FF3333",
+            -- -- subtext1 = "#FF3333",
+            -- -- surface0 = "#FF3333",
+            -- -- surface1 = "#FF3333",
+            -- -- surface2 = "#FF3333",
+            -- -- teal = "#FF3333",
+            -- -- text = "#FF3333",
+            -- -- yellow = "#FF3333",
+            -- },
+            -- },
             custom_highlights = {
                 -- Comment = { fg = "#A9D5C4" },
                 -- TabLineSel = { bg = "#FF3333" },
@@ -90,10 +86,5 @@ return {
             },
         })
         vim.cmd("colorscheme catppuccin")
-        -- vim.cmd("colorscheme default")
-        -- vim.cmd("highlight Normal guibg=none")
-        -- vim.cmd("highlight Normal guifg=#A9D5C4")
-        -- vim.cmd("highlight LineNr guifg=#A9D5C4")
-        -- vim.cmd("highlight Keyword guifg=#A9D5C4")
-    end
+    end,
 }

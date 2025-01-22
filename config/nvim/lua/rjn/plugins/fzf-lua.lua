@@ -7,14 +7,7 @@ return {
                     -- layout = "horizontal"
                     layout = "vertical",
                     default = "none"
-                    -- default = "bat"
-                    -- default = "head"
-                    -- default = "builtin"
                 },
-                -- height = 0.8,
-                -- width = 0.8,
-                -- row = 0.5,
-                -- hls = { normal = "Pmenu" },
             },
             fzf_opts = {
                 ["--no-info"] = "",

@@ -73,15 +73,15 @@ return {
 
         vim.cmd("colorscheme tokyonight")
 
+        -- vim.cmd("hi Cursor guifg=#ffffff guibg=#aaaaaa")
         -- vim.cmd("hi StatusLine guifg=#373b41 guibg=#81a2be")
         -- vim.cmd("hi CursorLineNr cterm=underline ctermfg=11 gui=bold guifg=#f9ecbf")
         -- vim.cmd("hi SpecialKey guifg=#74C7EC")
+        -- vim.cmd("hi LineNr guibg=#002B36") -- line number column bg
 
         -- vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#51B3EC", bold = true })
-        -- -- vim.api.nvim_set_hl(0, "LineNr", { fg = "green" })
-        -- vim.cmd("hi LineNr guibg=#002B36") -- line number column bg
-        -- -- vim.api.nvim_set_hl(0, "LineNr", { fg = "#00FF00" })
         -- vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#FB508F", bold = true })
+        require('rjn.plugins.colorschemes.overrides')
     end
 
 }
