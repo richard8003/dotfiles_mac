@@ -126,6 +126,9 @@ vim.cmd([[
     highlight NonText ctermbg=none
 ]])
 
+vim.cmd([[
+autocmd BufWinEnter,WinEnter term://* startinsert
+]])
 -- START NETRW WHEN VIM STARTS
 -- Checks if there is a file open after Vim starts up,
 -- and if not, open the current working directory in Netrw.
@@ -141,8 +144,6 @@ augroup END
 -- "i-ci:block-Cursor/lCursor-blinkwait100-blinkon100-blinkoff100",
 -- "r:hor50-Cursor/lCursor-blinkwait700-blinkon100-blinkoff100",
 -- }
-
-
 
 -- vim.cmd([[
 -- highlight Cursor guifg=white guibg=darkgrey
