@@ -13,9 +13,12 @@ window-padding-x = 8
 #theme = dracula
 #theme = catppuccin-frappe
 theme = catppuccin-mocha 
+#theme = rose-pine-moon
+
 
 
 # background ==========================================================
+#ghostty +list-themes
 
 # josean bg
 #background = #011628 
@@ -27,7 +30,7 @@ theme = catppuccin-mocha
 #background = #0F191F 
 
 # slightly purple
-background=#15192A
+#background=#15192A
 
 # catppuccin mocha
 #background = #1E1E2E 
@@ -36,7 +39,7 @@ background=#15192A
 #background = #272727
 #background = #1E1E1E
 #background = #000000
-#background = #212a30
+background = #212a30
 #background = #232136
 #background = #272a34
 
@@ -49,7 +52,8 @@ macos-titlebar-style = hidden
 font-size = 16
 
 # background opacity
-background-opacity = .95
+#background-opacity = .95
+background-opacity = 1
 
 # pressing ctrl+q followed by 'n' opens a new window
 # keybind = ctrl+q>n=new_window

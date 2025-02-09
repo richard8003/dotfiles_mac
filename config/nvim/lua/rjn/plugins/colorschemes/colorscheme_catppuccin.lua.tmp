@@ -1,0 +1,90 @@
+return {
+    -- { 'catppuccin/nvim', as = 'catppuccin' },
+    "catppuccin/nvim",
+    priority = 1000,
+    config = function()
+        require("catppuccin").setup({
+            flavour = "macchiato", -- latte, frappe, macchiato, mocha
+            background = {         -- :h background
+                light = "latte",
+                dark = "mocha",
+            },
+            transparent_background = true, -- disables setting the background color.
+            show_end_of_buffer = false,    -- shows the '~' characters after the end of buffers
+            term_colors = false,           -- sets terminal colors (e.g. `g:terminal_color_0`)
+            dim_inactive = {
+                enabled = false,           -- dims the background color of inactive window
+                shade = "dark",
+                percentage = 0.15,         -- percentage of the shade to apply to the inactive window
+            },
+            no_italic = false,             -- Force no italic
+            no_bold = false,               -- Force no bold
+            no_underline = false,          -- Force no underline
+            styles = {                     -- Handles the styles of general hi groups (see `:h highlight-args`):
+                comments = { "italic" },   -- Change the style of comments
+                conditionals = { "italic" },
+                loops = {},
+                functions = {},
+                keywords = {},
+                strings = {},
+                variables = {},
+                numbers = {},
+                booleans = {},
+                properties = {},
+                types = {},
+                operators = {},
+            },
+            -- color_overrides = {
+            -- mocha = {
+            -- -- base = "#FF3333", -- line highlight
+            -- -- blue = "#FF3333", -- method
+            -- -- crust = "#FF3333",
+            -- -- flamingo = "#FF3333", -- curly brases
+            -- -- green = "#FF3333",
+            -- -- lavender = "#5fb950",
+            -- lavender = "#A9D5C4",
+            -- -- mantle = "#FF3333",
+            -- -- maroon = "#FF3333",
+            -- mauve = "#5fb950", -- function()
+            -- -- overlay0 = "#FF3333", -- comments
+            -- -- overlay1 = "#FF3333",
+            -- -- overlay2 = "#FF3333",
+            -- -- peach = "#ffffff", -- booleans
+            -- -- pink = "#FF3333",
+            -- -- red = "#FF3333",
+            -- -- rosewater = "#FF3333",
+            -- -- sapphire = "#FF3333",
+            -- sky = "#FFFFFF", -- = sign för example
+            -- -- subtext0 = "#FF3333",
+            -- -- subtext1 = "#FF3333",
+            -- -- surface0 = "#FF3333",
+            -- -- surface1 = "#FF3333",
+            -- -- surface2 = "#FF3333",
+            -- -- teal = "#FF3333",
+            -- -- text = "#FF3333",
+            -- -- yellow = "#FF3333",
+            -- },
+            -- },
+            custom_highlights = {
+                -- Comment = { fg = "#A9D5C4" },
+                -- TabLineSel = { bg = "#FF3333" },
+                -- CmpBorder = { fg = "#FF3333" },
+                -- Pmenu = { bg = "#FF3333" },
+                LineNr = { fg = "#A9D5C4" },
+                -- Normal = { fg = "#A9D5C4" },
+                -- variable = { fg = "#A9D5C4" }
+            },
+            integrations = {
+                cmp = true,
+                gitsigns = true,
+                nvimtree = true,
+                treesitter = true,
+                notify = false,
+                mini = false,
+                telescope = true,
+                -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
+            },
+        })
+        vim.cmd("colorscheme catppuccin")
+    end,
+}

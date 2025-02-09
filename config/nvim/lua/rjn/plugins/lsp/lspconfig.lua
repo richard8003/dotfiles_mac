@@ -2,17 +2,21 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-        'saghen/blink.cmp',
+        "saghen/blink.cmp",
         { "antosha417/nvim-lsp-file-operations", config = true },
         { "folke/neodev.nvim",                   opts = {} },
     },
 
     config = function()
-        local capabilities = require('blink.cmp').get_lsp_capabilities()
+        local capabilities = require("blink.cmp").get_lsp_capabilities()
         local lspconfig = require("lspconfig")
 
-        vim.keymap.set("n", "<leader>ht", ":lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>",
-            { noremap = false, silent = false })
+        vim.keymap.set(
+            "n",
+            "<leader>ht",
+            ":lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>",
+            { noremap = false, silent = false }
+        )
 
         vim.api.nvim_create_autocmd("LspAttach", {
             group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -34,12 +38,12 @@ return {
             globals = { "vim" },
             signs = {
                 text = {
-                    [vim.diagnostic.severity.ERROR] = '',
-                    [vim.diagnostic.severity.WARN] = ' ',
-                    [vim.diagnostic.severity.INFO] = ' ',
-                    [vim.diagnostic.severity.HINT] = ' ',
-                }
-            }
+                    [vim.diagnostic.severity.ERROR] = "",
+                    [vim.diagnostic.severity.WARN] = " ",
+                    [vim.diagnostic.severity.INFO] = " ",
+                    [vim.diagnostic.severity.HINT] = " ",
+                },
+            },
         })
 
         lspconfig.ts_ls.setup({
@@ -47,25 +51,41 @@ return {
             filetypes = { "vue", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact" },
         })
         lspconfig.lua_ls.setup({
-            capabilities = capabilities
+            capabilities = capabilities,
         })
         lspconfig.gopls.setup({
-            capabilities = capabilities
+            capabilities = capabilities,
         })
         lspconfig.clangd.setup({
-            capabilities = capabilities
+            capabilities = capabilities,
         })
-        lspconfig.volar.setup {
+        lspconfig.volar.setup({
             init_options = {
-                filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' },
+                filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+                typescript = {
+                    tsdk =
+                    "/Users/rjn/.local/share/nvim/mason/packages/typescript-language-server/node_modules/typescript/lib",
+                },
+            },
+        })
 
-            }
-        }
-        lspconfig.eslint.setup {}
+        lspconfig.eslint.setup({})
 
         lspconfig.emmet_language_server.setup({
             capabilities = capabilities,
-            filetypes = { "vue", "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact" },
+            filetypes = {
+                "vue",
+                "css",
+                "eruby",
+                "html",
+                "javascript",
+                "javascriptreact",
+                "less",
+                "sass",
+                "scss",
+                "pug",
+                "typescriptreact",
+            },
             init_options = {
                 ---@type table<string, string>
                 includeLanguages = {},
