@@ -1,12 +1,7 @@
 return {
     "echasnovski/mini.nvim",
     version = "*",
-    dependencies = "echasnovski/mini.extra",
-    "echasnovski/mini.base16",
     config = function()
-        require("mini.extra").setup({})
-        require("mini.base16").setup({})
-
         require("mini.comment").setup({
             options = {
                 -- Function to compute custom 'commentstring' (optional)
