@@ -16,10 +16,11 @@ vim.cmd("let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'") -- make line
 vim.opt.path:append("**")
 
 -- optionally enable 24-bit colour
-vim.opt.termguicolors = true
+-- vim.opt.termguicolors = true
+vim.opt.termguicolors = false
 
 -- line numbers
-vim.opt.relativenumber = true -- show relative line numbers
+vim.opt.relativenumber = true -- show relative line numberkls
 vim.opt.number = true         -- shows absolute line number on cursor line (when relative number is on)
 
 -- tabs & indentation

@@ -1,0 +1,13 @@
+alias cat='bat'
+alias cd='z'
+alias vim="nvim"
+alias cpretty="cp ~/dev/.prettierrc ."
+alias live-css='live-server --no-css-inject'
+alias startdocker='docker compose down; docker compose up -d nginx laravel-queue'
+alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
+alias cloudSqlSmoothcomp="cloud_sql_proxy -instances=smoothcomp-83609:europe-west3:smoothcomp=tcp:5588"
+#alias ls='exa -Slhg'
+#alias ls='exa -al --no-permissions --no-user --no-filesize'
+alias ls='ls -al'
+alias rm='trash'
+alias lsc='eza -al --no-permissions --no-user --no-filesize'

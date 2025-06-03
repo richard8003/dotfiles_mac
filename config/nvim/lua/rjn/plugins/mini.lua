@@ -40,6 +40,38 @@ return {
             },
         })
 
+        local pick = require("mini.pick")
+
+        function ClearQuickfix()
+            vim.fn.setqflist({}, "r")
+            print("Quickfix list cleared")
+        end
+
+        function GrepToQuickfix()
+            pick.builtin.grep_live({
+                action = function(items)
+                    if not items or #items == 0 then
+                        print("No matches found")
+                        return
+                    end
+
+                    local qf_list = {}
+                    for _, item in ipairs(items) do
+                        table.insert(qf_list, {
+                            filename = item.path,
+                            lnum = item.lnum,
+                            col = item.col,
+                            text = item.text,
+                        })
+                    end
+
+                    vim.fn.setqflist(qf_list)
+                    print("Added " .. #qf_list .. " items to quickfix list")
+                    vim.cmd("copen") -- Open the quickfix list
+                end,
+            })
+        end
+
         require("mini.pick").setup({
             -- Delays (in ms; should be at least 1)
             delay = {
@@ -59,21 +91,21 @@ return {
                 choose_in_split = "<C-s>",
                 choose_in_tabpage = "<C-t>",
                 choose_in_vsplit = "<C-v>",
-                choose_marked = "<M-CR>",
 
                 delete_char = "<BS>",
                 delete_char_right = "<Del>",
                 delete_left = "<C-u>",
                 delete_word = "<C-w>",
 
-                mark = "<C-x>",
-                mark_all = "<C-a>",
-
                 move_down = "<C-n>",
                 move_start = "<C-g>",
                 move_up = "<C-p>",
 
                 paste = "<C-r>",
+
+                mark = "<C-x>",          -- Mark single item
+                mark_all = "<C-a>",      -- Mark all items
+                choose_marked = "<C-y>", -- Choose all marked items (instead of <M-CR
 
                 refine = "<C-Space>",
                 refine_marked = "<M-Space>",
@@ -124,6 +156,9 @@ return {
                 prompt_prefix = "> ",
             },
         })
+        -- this is needed for extra pickers like 'old files'
+        require("mini.extra").setup()
+
         vim.keymap.set("n", "<leader>ff", ":Pick files tool='git'<CR>", { silent = true })
         vim.keymap.set("n", "<leader>f", ":Pick files<CR>", { silent = true })
         vim.keymap.set("n", "<leader>g", ":Pick grep<CR>", {})
@@ -131,4 +166,6 @@ return {
         vim.keymap.set("n", "<leader>r", ":Pick oldfiles<CR>", {})
         vim.keymap.set("n", "<leader>h", ":Pack help<CR>", {})
     end,
+    vim.keymap.set("n", "<leader>lg", ":lua GrepToQuickfix()<CR>", { silent = true }),
+    vim.keymap.set("n", "<leader>qq", ":lua ClearQuickfix()<CR>", { silent = true }),
 }

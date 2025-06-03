@@ -15,8 +15,6 @@ window-padding-x = 8
 theme = catppuccin-mocha 
 #theme = rose-pine-moon
 
-
-
 # background ==========================================================
 #ghostty +list-themes
 
@@ -36,15 +34,15 @@ theme = catppuccin-mocha
 #background = #1E1E2E 
 
 #background = #0F000 
-#background = #272727
-#background = #1E1E1E
-#background = #000000
-background = #212a30
-#background = #232136
-#background = #272a34
+# background = #272727
+# background = #1E1E1E
+# background = #000000
+# background = #212a30
+# background = #232136
+# background = #272a34
+# background = #000000
 
 # =======================================================================
-
 
 # hide the title bar
 macos-titlebar-style = hidden

@@ -25,7 +25,7 @@ vim.api.nvim_set_keymap("v", "<Leader>r", ":s/", { noremap = true, silent = fals
 vim.api.nvim_set_keymap("n", "<Leader>ra", ":%s/", { noremap = true, silent = false })
 vim.api.nvim_set_keymap("v", "<Leader>ra", ":%s/", { noremap = true, silent = false })
 
-vim.keymap.set("n", "go", ":w<CR>:!go run all<CR>") --Run Go file from nvim
+-- vim.keymap.set("n", "go", ":w<CR>:!go run all<CR>") --Run Go file from nvim
 -- vim.keymap.set("n", "go", ":w<CR>:!go run %<CR>") --Run Go file from nvim
 -- vim.keymap.set("n", "go", ":w<CR>:!go run .<CR>") --Run Go file from nvim
 
@@ -39,15 +39,21 @@ vim.keymap.set("n", "k", "j")
 vim.keymap.set("v", "j", "k")
 vim.keymap.set("v", "k", "j")
 
+
+-- more adjusthents for colemak-dh
+vim.keymap.set("n", "<c-m>", ":wincmd h<CR>")
+vim.api.nvim_set_keymap("n", "m", "h", { noremap = true })
+vim.api.nvim_set_keymap("v", "m", "h", { noremap = true })
+
 --" Make Y copy from the cursor and not the whole line. Just like D or C
 vim.keymap.set("n", "Y", "y$")
 
 -- comments
 -- default #
-vim.keymap.set("n", "<leader>l", ":norm _i#<CR>")
-vim.keymap.set("n", "<leader>ll", ":norm ^x<CR>")
-vim.keymap.set("v", "<leader>l", ":norm _i#<CR>")
-vim.keymap.set("v", "<leader>ll", ":norm ^x<cr>")
+-- vim.keymap.set("n", "<leader>l", ":norm _i#<CR>")
+-- vim.keymap.set("n", "<leader>ll", ":norm ^x<CR>")
+-- vim.keymap.set("v", "<leader>l", ":norm _i#<CR>")
+-- vim.keymap.set("v", "<leader>ll", ":norm ^x<cr>")
 
 -- auto format code
 vim.keymap.set("n", "<leader>w", vim.lsp.buf.format)
@@ -83,7 +89,7 @@ vim.keymap.set("v", "K", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "J", ":m '<-2<CR>gv=gv")
 
 -- allows the cursor to stay in the same place while appending the line below
-vim.keymap.set("n", "J", "mzJ`z")
+-- vim.keymap.set("n", "J", "mzJ`z")
 
 -- these two keeps the cursor in the middle of the screeen while c-d c-u
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -112,17 +118,17 @@ vim.keymap.set("n", "<s-tab>", ":bprev<CR>")
 
 -- GIT
 local function git_push()
-    vim.cmd(':silent !git add %')
-    vim.cmd(':silent !git commit -m "foobar"')
-    vim.cmd(':silent !git push')
-    print("Git: pushed current file...")
+  vim.cmd(':silent !git add %')
+  vim.cmd(':silent !git commit -m "foobar"')
+  vim.cmd(':silent !git push')
+  print("Git: pushed current file...")
 end
 
 local function git_push_all()
-    vim.cmd(':silent !git add .')
-    vim.cmd(':silent !git commit -m "foobar"')
-    vim.cmd(':silent !git push')
-    print("Git: pushed all")
+  vim.cmd(':silent !git add .')
+  vim.cmd(':silent !git commit -m "foobar"')
+  vim.cmd(':silent !git push')
+  print("Git: pushed all")
 end
 
 vim.keymap.set("n", "<leader>p", git_push)
@@ -135,3 +141,17 @@ vim.keymap.set("n", "<c-h>", ":wincmd h<CR>", { silent = true })
 vim.keymap.set("n", "<c-l>", ":wincmd l<CR>", { silent = true })
 
 vim.keymap.set("i", "<c-s>", "<esc>bdw", { silent = true })
+
+
+function ToggleQuickfix()
+  local qf_exists = vim.fn.getqflist({ winid = 0 }).winid ~= 0
+  if qf_exists then
+    vim.cmd("cclose")
+  else
+    vim.cmd("copen")
+  end
+end
+
+vim.keymap.set("n", "<leader>qo", ":lua ToggleQuickfix()<CR>", { silent = true })
+vim.keymap.set("n", "<leader>n", ":cnext<CR>", { silent = true })
+vim.keymap.set("n", "<leader>p", ":cprev<CR>", { silent = true })

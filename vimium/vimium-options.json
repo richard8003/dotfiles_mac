@@ -1,0 +1,27 @@
+{
+  "keyMappings": "# Insert your preferred key mappings here.\n\nmap / find\n\nmap j scrollUp\nmap k scrollDown\n\nmap J nextTab\nmap K previousTab\n\nmap R reload\n\nmap r none",
+  "searchEngines": "w: https://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia\n\n# More examples.\n#\n# (Vimium supports search completion Wikipedia, as\n# above, and for these.)\n#\n# g: https://www.google.com/search?q=%s Google\n\n\nu: https://smoothcomp.com/en/admin/user/?\no: https://smoothcomp.com/en/admin/organization\na: https://smoothcomp.com/en/admin/club\naf: https://smoothcomp.com/en/admin/affiliation\ne:  https://smoothcomp.com/en/admin/event\nh: https://secure.helpscout.net/mailbox/fdf9ef24c30c0206/2616833/\ntest: https://gitlab.com/smoothcomp/smoothcomp/-/boards/3782224\nalltest: https://gitlab.com/groups/smoothcomp/-/boards/5301592\npip: https://gitlab.com/smoothcomp/smoothcomp/-/pipelines\n\n\n\n\najp: https://wristlock.smoothcomp.dev/en/event/340/bracket/22494\nwatch: https://crossface.smoothcomp.dev/en/event/387\nscore: https://wristlock.smoothcomp.dev/en/event/336\ndemo: https://demo.smoothcomp.com/en/admin/user/?\nmort: https://wristlock.smoothcomp.dev/en/organizer/event/340/entries/?\nsupport: https://support.smoothcomp.com/?\nnotifi: https://gitlab.com/smoothcomp/smoothcomp/-/issues/6315\napp: https://docs.google.com/spreadsheets/d/1Uyos8QZ-N1BkoPGeOdQIQJvJEq70TMUfNr8xvWdUY-4/edit?gid=0#gid=0\ncopa: https://copa-bjj.smoothcomp.com/en/organizer/event/17687/registration\ndd: https://demo.smoothcomp.com/en/organizer/event/1269/registration\npgf: https://smoothcomp.com/en/event/16966/schedule\ntemplate: https://smoothcomp.com/en/event/2727\npolis: https://smoothcomp.com/en/organizer/event/18632/registration\nasshole: https://secure.helpscout.net/conversation/2729271941/66437?viewId=2616833\nlandskap: https://www.elevspel.se/amnen/geografi/6707-sveriges-landskap.html\nbudget: https://docs.google.com/spreadsheets/d/1F2uM4yj5PI8SPrJJS2-2qwObzRWpddmGs95vaLAUBQY/edit?gid=543900404#gid=\nmolly: https://secure.helpscout.net/conversation/2821382094/70382?viewId=2616833\nmolly2: https://secure.helpscout.net/conversation/2821382094/70382?viewId=2616833\nchat: https://chatgpt.com/",
+  "settingsVersion": "2.1.2",
+  "exclusionRules": [
+    {
+      "passKeys": "",
+      "pattern": "https://freebie.games/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://stadia.google.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://www.speedtypingonline.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https://freebie.games/"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https://playclassic.games/*"
+    }
+  ]
+}

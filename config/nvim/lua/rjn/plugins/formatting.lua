@@ -13,7 +13,7 @@ return {
                 html = { "prettier" },
                 json = { "prettier" },
                 yaml = { "prettier" },
-                markdown = { "prettier" },
+                -- markdown = { "prettier" },
                 vue = { "prettier" },
                 cypress = { "prettier" },
                 lua = { "stylua" },

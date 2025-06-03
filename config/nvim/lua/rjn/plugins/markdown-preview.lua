@@ -6,5 +6,5 @@ return {
         vim.g.mkdp_filetypes = { "markdown" }
     end,
     ft = { "markdown" },
-    vim.keymap.set("n", "mp", ":MarkdownPreview<CR>")
+    vim.keymap.set("n", "<leader>mp", ":MarkdownPreview<CR>")
 }
