@@ -92,3 +92,6 @@ if [ -f '/Users/rjn/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/r
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/rjn/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/rjn/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
+
+# Created by `pipx` on 2025-08-26 08:58:00
+export PATH="$PATH:/Users/rjn/.local/bin"
