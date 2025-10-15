@@ -9,13 +9,18 @@ after-login-command = []
 # You can use it to add commands that run after AeroSpace startup.
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = [
-    # JankyBorders has a built-in detection of already running process,
-    # so it won't be run twice on AeroSpace restart
-    #'exec-and-forget borders active_color=0xffffffff inactive_color=0xff494d64 width=8.0',
-    'exec-and-forget borders active_color=0x15f2fd inactive_color=0xff494d64 width=8.0',
-]
+# after-startup-command = [
+#     # JankyBorders has a built-in detection of already running process,
+#     # so it won't be run twice on AeroSpace restart
+#     #'exec-and-forget borders active_color=0xffffffff inactive_color=0xff494d64 width=8.0',
+#     # 'exec-and-forget borders active_color=0x15f2fd inactive_color=0xff494d64 width=8.0',
+#   'exec-and-forget /opt/homebrew/bin/borders active_color=0xff15f2fd inactive_color=0x00000000 width=10.0'
+# ]
 
+after-startup-command = [
+  # 'exec-and-forget /opt/homebrew/bin/borders active_color=0xff15f2fd inactive_color=0x00000000 width=10.0'
+  'exec-and-forget /opt/homebrew/bin/borders active_color=0xffffffff inactive_color=0x00000000 width=20.0'
+]
 
 
 # Start AeroSpace at login
@@ -32,6 +37,7 @@ accordion-padding = 25
 
 # Possible values: tiles|accordion
 default-root-container-layout = 'tiles'
+# default-root-container-layout = 'accordion'
 
 # Possible values: horizontal|vertical|auto
 # 'auto' means: wide monitor (anything wider than high) gets horizontal orientation,
@@ -63,12 +69,18 @@ preset = 'qwerty'
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-inner.horizontal = 10 
-inner.vertical =   5
-outer.left =       5
-outer.bottom =     5
-outer.top =        5
-outer.right =      5
+inner.horizontal = 30 
+inner.vertical =   30
+outer.left =       30
+outer.bottom =     30
+outer.top =        30
+outer.right =      30
+# inner.horizontal = 10 
+# inner.vertical =   5
+# outer.left =       5
+# outer.bottom =     5
+# outer.top =        5
+# outer.right =      5
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -81,9 +93,12 @@ outer.right =      5
 4 = 'main'
 5 = 'main'
 6 = 'main'
-7 = 'main'
-8 = 'main'
-9 = 'main'
+# 7 = 'main'
+# 8 = 'main'
+# 9 = 'main'
+7 = '^built-in retina display$'
+8 = '^built-in retina display$'
+9 = '^built-in retina display$'
 10 = '^built-in retina display$'
 11 = '^built-in retina display$'
 12 = '^built-in retina display$'
@@ -120,6 +135,7 @@ alt-ctrl-v = 'split vertical'
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-enter = 'layout tiles accordion'
 alt-space = 'layout horizontal vertical'
+# alt-space = ['layout horizontal vertical', 'layout tiles accordion']
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
 alt-n = 'focus --boundaries all-monitors-outer-frame left'
@@ -188,6 +204,7 @@ alt-period = ['mode service', 'join-with right', 'mode main']
 
 alt-f = ['mode service', 'layout floating tiling', 'mode main']
 
+
 [mode.service.binding]
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
@@ -219,17 +236,44 @@ if.app-id = 'com.apple.finder'
 run = 'layout floating' 
 
 [[on-window-detected]]
-if.app-id = 'com.apple.MobileSMS'
-run = 'layout floating'
+if.app-id = 'com.google.Chrome'
+run = 'move-node-to-workspace 2' 
 
-#637   | com.brave.Browser          | Brave Browser
-#653   | com.google.Chrome          | Google Chrome
-#668   | com.apple.MobileSMS        | Messages
-#670   | org.openemu.OpenEmu        | OpenEmu
-#674   | com.apple.QuickTimePlayerX | QuickTime Player
-#676   | com.apple.Preview          | Preview
-#680   | com.apple.Music            | Music
-#684   | com.apple.finder           | Finder
-#818   | com.spotify.client         | Spotify
-#14689 | com.mitchellh.ghostty      | Ghostty
-#15375 | com.apple.TextEdit         | TextEdit
+[[on-window-detected]]
+if.app-id = 'com.openai.chat'
+run = 'move-node-to-workspace 3' 
+
+[[on-window-detected]]
+if.app-id = 'com.autodesk.fusion360'
+run = ['layout floating', 'move-node-to-workspace 6'] 
+
+[[on-window-detected]]
+if.app-id = 'org.kicad.kicad'
+run = ['layout floating', 'move-node-to-workspace 5']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.MobileSMS'
+run = ['layout tiling', 'move-node-to-workspace 7']
+
+[[on-window-detected]]
+if.app-id = 'com.hnc.Discord'
+run = ['layout tiling', 'move-node-to-workspace 7']
+
+[[on-window-detected]]
+if.app-id = 'net.whatsapp.WhatsApp'
+run = ['layout tiling', 'move-node-to-workspace 7']
+
+
+# 33807 | net.whatsapp.WhatsApp                           | ‎WhatsApp
+# 42081 | org.openemu.OpenEmu                             | OpenEmu
+# 721   | com.apple.finder                                | Finder
+# 4907  | com.hnc.Discord                                 | Discord
+# 1278  | com.mitchellh.ghostty                           | Ghostty
+# 14509 | com.apple.PasswordManagerBrowserExtensionHelper | Passwords Extension Helper (Google Chrome)
+# 958   | com.displaylink.DisplayLinkUserAgent            | DisplayLinkUserAgent
+# 711   | com.apple.MobileSMS                             | Messages
+# 820   | com.spotify.client                              | Spotify
+# 60787 | com.google.Chrome                               | Google Chrome
+# 38245 | com.openai.chat                                 | ChatGPT
+# 81472 | com.apple.LocalAuthentication.UIAgent           | coreautha
+# 86862 | org.flameshot.Flameshot                         | Flameshot

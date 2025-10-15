@@ -6,74 +6,135 @@ return {
         { "antosha417/nvim-lsp-file-operations", config = true },
         { "folke/neodev.nvim",                   opts = {} },
     },
-
     config = function()
         local capabilities = require("blink.cmp").get_lsp_capabilities()
-        local lspconfig = require("lspconfig")
 
-        vim.keymap.set(
-            "n",
-            "<leader>ht",
-            ":lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>",
-            { noremap = false, silent = false }
-        )
+        -- Always show signcolumn
+        vim.opt.signcolumn = "yes"
 
+        -- Diagnostics config
+        vim.diagnostic.config({
+            virtual_text = false,
+            signs = {
+                text = {
+                    [vim.diagnostic.severity.ERROR] = "",
+                    [vim.diagnostic.severity.WARN] = "",
+                    [vim.diagnostic.severity.INFO] = "",
+                    [vim.diagnostic.severity.HINT] = "",
+                },
+            },
+            underline = true,
+            update_in_insert = false,
+            severity_sort = true,
+        })
+
+        -- Show diagnostics popup on CursorHold
+        vim.api.nvim_create_autocmd("CursorHold", {
+            callback = function()
+                vim.diagnostic.open_float(nil, { focusable = false, scope = "cursor" })
+            end,
+        })
+
+        -- Toggle inlay hints
+        vim.keymap.set("n", "<leader>ht", function()
+            local buf = 0
+            local enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = buf })
+            vim.lsp.inlay_hint.enable(not enabled, { bufnr = buf })
+        end, { desc = "Toggle inlay hints" })
+
+        -- Common keymaps
         vim.api.nvim_create_autocmd("LspAttach", {
             group = vim.api.nvim_create_augroup("UserLspConfig", {}),
             callback = function(ev)
                 local opts = { buffer = ev.buf, silent = true }
-
                 opts.desc = "Go to declaration"
-                vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
-
-                opts.desc = "Show LSP definitions"
-                vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts) -- show lsp definitions
-
-                opts.desc = "See available code actions"
-                vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
+                vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+                opts.desc = "Go to definition"
+                vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+                opts.desc = "Code actions"
+                vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
             end,
         })
 
-        vim.diagnostic.config({
-            globals = { "vim" },
-            signs = {
-                text = {
-                    [vim.diagnostic.severity.ERROR] = "",
-                    [vim.diagnostic.severity.WARN] = " ",
-                    [vim.diagnostic.severity.INFO] = " ",
-                    [vim.diagnostic.severity.HINT] = " ",
+        ----------------------------------------------------------------
+        -- Helper: Start server on specific filetypes
+        ----------------------------------------------------------------
+        local function start_on_filetypes(patterns, cfg)
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = patterns,
+                callback = function(ev)
+                    vim.lsp.start(vim.tbl_deep_extend("force", {}, cfg), { bufnr = ev.buf })
+                end,
+            })
+        end
+
+        ----------------------------------------------------------------
+        -- Language servers
+        ----------------------------------------------------------------
+
+        -- Lua
+        start_on_filetypes({ "lua" }, {
+            name = "lua_ls",
+            cmd = { "lua-language-server" },
+            capabilities = capabilities,
+            settings = {
+                Lua = {
+                    diagnostics = { globals = { "vim" } },
+                    workspace = { checkThirdParty = false },
+                    telemetry = { enable = false },
                 },
             },
         })
 
-        lspconfig.ts_ls.setup({
+        -- TypeScript / JavaScript
+        start_on_filetypes(
+            { "typescript", "typescriptreact", "javascript", "javascriptreact", "vue", "less", "sass", "scss", "pug" },
+            {
+                name = "ts_ls",
+                cmd = { "typescript-language-server", "--stdio" },
+                root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" },
+                capabilities = capabilities,
+            }
+        )
+
+        -- Go
+        start_on_filetypes({ "go" }, {
+            name = "gopls",
+            cmd = { "gopls" },
             capabilities = capabilities,
-            filetypes = { "vue", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact" },
         })
-        lspconfig.lua_ls.setup({
+
+        -- C/C++
+        start_on_filetypes({ "c", "cpp" }, {
+            name = "clangd",
+            cmd = { "clangd" },
             capabilities = capabilities,
         })
-        lspconfig.gopls.setup({
-            capabilities = capabilities,
-        })
-        lspconfig.clangd.setup({
-            capabilities = capabilities,
-        })
-        lspconfig.volar.setup({
+
+        -- Vue (Volar)
+        start_on_filetypes({ "vue" }, {
+            name = "volar",
+            cmd = { "vue-language-server", "--stdio" },
             init_options = {
-                filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
                 typescript = {
-                    tsdk =
-                    "/Users/rjn/.local/share/nvim/mason/packages/typescript-language-server/node_modules/typescript/lib",
+                    tsdk = vim.fn.expand(
+                        "~/.local/share/nvim/mason/packages/typescript-language-server/node_modules/typescript/lib"
+                    ),
                 },
             },
+            capabilities = capabilities,
         })
 
-        lspconfig.eslint.setup({})
-
-        lspconfig.emmet_language_server.setup({
+        -- ESLint
+        start_on_filetypes({ "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" }, {
+            name = "eslint",
+            cmd = { "vscode-eslint-language-server", "--stdio" },
             capabilities = capabilities,
-            filetypes = {
+        })
+
+        -- Emmet
+        start_on_filetypes(
+            {
                 "vue",
                 "css",
                 "eruby",
@@ -86,26 +147,11 @@ return {
                 "pug",
                 "typescriptreact",
             },
-            init_options = {
-                ---@type table<string, string>
-                includeLanguages = {},
-                --- @type string[]
-                excludeLanguages = {},
-                --- @type string[]
-                extensionsPath = {},
-                --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/preferences/)
-                preferences = {},
-                --- @type boolean Defaults to `true`
-                showAbbreviationSuggestions = true,
-                --- @type "always" | "never" Defaults to `"always"`
-                showExpandedAbbreviation = "always",
-                --- @type boolean Defaults to `false`
-                showSuggestionsAsSnippets = false,
-                --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/syntax-profiles/)
-                syntaxProfiles = {},
-                --- @type table<string, string> [Emmet Docs](https://docs.emmet.io/customization/snippets/#variables)
-                variables = {},
-            },
-        })
+            {
+                name = "emmet_language_server",
+                cmd = { "emmet-language-server", "--stdio" },
+                capabilities = capabilities,
+            }
+        )
     end,
 }

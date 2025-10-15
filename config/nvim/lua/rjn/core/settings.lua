@@ -5,12 +5,12 @@ vim.g.maplocalleader = " "
 vim.g.loaded_perl_provider = 0
 
 -- netrw settigs
--- vim.cmd("let g:netrw_liststyle = 3") -- tree view
+-- vim.cmd("let g:netrw_liststyle = 3")                                -- tree view
 vim.cmd("let g:netrw_banner = 0")                                   -- hide the banner
 vim.cmd("let g:netrw_altv = 1")                                     -- open splits to the right
 vim.cmd("let g:netrw_browse_split = 0")                             -- open splits to the right
 vim.cmd("let g:netrw_winsize= 20")                                  -- open splits to the right
-vim.cmd("let g:netrw_list_hide = netrw_gitignore#Hide()")
+-- vim.cmd("let g:netrw_list_hide = netrw_gitignore#Hide()")
 vim.cmd("let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'") -- make line numbers visible at the start ov nvim (to be able to see them in netrw).
 
 vim.opt.path:append("**")

@@ -16,5 +16,14 @@ alt - t : open -a "/Applications/Discord.app"
 alt - p : open -a "/Applications/WhatsApp.app" 
 alt - w : open -a "/Applications/Firefox.app"
 alt - d : open -a "Messages"
+alt - g : open -a "ChatGPT"
+alt - b : open -a "Photos"
+
+alt - q : open -a ~/scripts/flameshot-ocr.sh
+# alt - v : open -a ~/scripts/test.sh
+
+
+# alt + cmd + ctrl + shift - a : osascript -e 'tell application "System Events" to keystroke "hello world"'
+# alt + - v : osascript -e 'tell application "System Events" to keystroke "hello world"'
 
 

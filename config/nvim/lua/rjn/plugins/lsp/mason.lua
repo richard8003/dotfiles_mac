@@ -29,7 +29,7 @@ return {
                 "lua_ls",
                 "emmet_ls",
                 "gopls",
-                "volar"
+                -- "volar"
             },
         })
 

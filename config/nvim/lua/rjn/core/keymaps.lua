@@ -1,3 +1,9 @@
+-- switching j and k for colemac navigation
+vim.keymap.set("n", "j", "k")
+vim.keymap.set("n", "k", "j")
+vim.keymap.set("v", "j", "k")
+vim.keymap.set("v", "k", "j")
+
 -- terminal mode
 vim.keymap.set('t', '<ESC>', [[<C-\><C-n>]], { noremap = true })
 
@@ -33,11 +39,6 @@ vim.api.nvim_set_keymap("v", "<Leader>ra", ":%s/", { noremap = true, silent = fa
 vim.keymap.set("n", "<leader>jj", ":!node %<CR>")
 -- vim.keymap.set('n', '<leader>ts', ':!ts-node %<CR>')
 
--- switching j and k for colemac navigation
-vim.keymap.set("n", "j", "k")
-vim.keymap.set("n", "k", "j")
-vim.keymap.set("v", "j", "k")
-vim.keymap.set("v", "k", "j")
 
 
 -- more adjusthents for colemak-dh
@@ -59,7 +60,8 @@ vim.keymap.set("n", "Y", "y$")
 vim.keymap.set("n", "<leader>w", vim.lsp.buf.format)
 
 -- File explorer
-vim.keymap.set("n", "<leader>tt", ":vs<CR> || :Ex<CR>")
+vim.keymap.set("n", "<leader>tt", ":vs<CR>")
+-- vim.keymap.set("n", "<leader>tt", ":vs<CR> || :Ex<CR>")
 vim.keymap.set("n", "<leader>t", ":Ex<CR>")
 -- vim.keymap.set("n", "<leader>t", ":NvimTreeToggle<CR>")
 
@@ -118,17 +120,17 @@ vim.keymap.set("n", "<s-tab>", ":bprev<CR>")
 
 -- GIT
 local function git_push()
-  vim.cmd(':silent !git add %')
-  vim.cmd(':silent !git commit -m "foobar"')
-  vim.cmd(':silent !git push')
-  print("Git: pushed current file...")
+    vim.cmd(':silent !git add %')
+    vim.cmd(':silent !git commit -m "foobar"')
+    vim.cmd(':silent !git push')
+    print("Git: pushed current file...")
 end
 
 local function git_push_all()
-  vim.cmd(':silent !git add .')
-  vim.cmd(':silent !git commit -m "foobar"')
-  vim.cmd(':silent !git push')
-  print("Git: pushed all")
+    vim.cmd(':silent !git add .')
+    vim.cmd(':silent !git commit -m "foobar"')
+    vim.cmd(':silent !git push')
+    print("Git: pushed all")
 end
 
 vim.keymap.set("n", "<leader>p", git_push)
@@ -144,12 +146,12 @@ vim.keymap.set("i", "<c-s>", "<esc>bdw", { silent = true })
 
 
 function ToggleQuickfix()
-  local qf_exists = vim.fn.getqflist({ winid = 0 }).winid ~= 0
-  if qf_exists then
-    vim.cmd("cclose")
-  else
-    vim.cmd("copen")
-  end
+    local qf_exists = vim.fn.getqflist({ winid = 0 }).winid ~= 0
+    if qf_exists then
+        vim.cmd("cclose")
+    else
+        vim.cmd("copen")
+    end
 end
 
 vim.keymap.set("n", "<leader>qo", ":lua ToggleQuickfix()<CR>", { silent = true })

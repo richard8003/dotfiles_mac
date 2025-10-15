@@ -150,7 +150,8 @@ return {
                 config = nil,
 
                 -- String to use as cursor in prompt
-                prompt_cursor = "▏",
+                -- prompt_cursor = "▏",
+                prompt_caret = "▏",
 
                 -- String to use as prefix in prompt
                 prompt_prefix = "> ",
@@ -158,6 +159,39 @@ return {
         })
         -- this is needed for extra pickers like 'old files'
         require("mini.extra").setup()
+
+        -- mini.statusline
+        require("mini.statusline").setup({
+            -- You can override sections if you like
+            content = {
+                active = function()
+                    local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
+                    local git = MiniStatusline.section_git({ trunc_width = 75 })
+                    local diagnostics = MiniStatusline.section_diagnostics({ trunc_width = 75 })
+                    local filename = MiniStatusline.section_filename({ trunc_width = 140, path = 1 }) -- 1 = relative path
+                    local fileinfo = MiniStatusline.section_fileinfo({ trunc_width = 120 })
+                    local location = MiniStatusline.section_location({ trunc_width = 75 })
+
+                    return MiniStatusline.combine_groups({
+                        -- LEFT
+                        { hl = mode_hl,                 strings = { mode } },
+                        { hl = "MiniStatuslineDevinfo", strings = { git, diagnostics } },
+
+                        -- CENTER (filename)
+                        "%=",
+                        { hl = "MiniStatuslineFilename", strings = { filename } },
+                        "%=",
+
+                        -- RIGHT
+                        { hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
+                        { hl = mode_hl,                  strings = { location } },
+                    })
+                end,
+            },
+
+            set_vim_settings = true,                  -- sets laststatus=2 and showmode=false
+            use_icons = vim.g.have_nerd_font == true, -- optional: enable devicons if you have nerd font
+        })
 
         vim.keymap.set("n", "<leader>ff", ":Pick files tool='git'<CR>", { silent = true })
         vim.keymap.set("n", "<leader>f", ":Pick files<CR>", { silent = true })
