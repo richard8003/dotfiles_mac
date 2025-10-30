@@ -19,7 +19,8 @@ after-login-command = []
 
 after-startup-command = [
   # 'exec-and-forget /opt/homebrew/bin/borders active_color=0xff15f2fd inactive_color=0x00000000 width=10.0'
-  'exec-and-forget /opt/homebrew/bin/borders active_color=0xffffffff inactive_color=0x00000000 width=20.0'
+  # 'exec-and-forget /opt/homebrew/bin/borders active_color=0xffffffff inactive_color=0x00000000 width=20.0'
+  'exec-and-forget /opt/homebrew/bin/borders active_color=0xffCC00FF inactive_color=0x00000000 width=20.0'
 ]
 
 
@@ -74,7 +75,7 @@ inner.vertical =   30
 outer.left =       30
 outer.bottom =     30
 outer.top =        30
-outer.right =      30
+outer.right =      100
 # inner.horizontal = 10 
 # inner.vertical =   5
 # outer.left =       5

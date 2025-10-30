@@ -86,16 +86,6 @@ return {
             },
         })
 
-        -- TypeScript / JavaScript
-        start_on_filetypes(
-            { "typescript", "typescriptreact", "javascript", "javascriptreact", "vue", "less", "sass", "scss", "pug" },
-            {
-                name = "ts_ls",
-                cmd = { "typescript-language-server", "--stdio" },
-                root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" },
-                capabilities = capabilities,
-            }
-        )
 
         -- Go
         start_on_filetypes({ "go" }, {
@@ -125,12 +115,6 @@ return {
             capabilities = capabilities,
         })
 
-        -- ESLint
-        start_on_filetypes({ "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" }, {
-            name = "eslint",
-            cmd = { "vscode-eslint-language-server", "--stdio" },
-            capabilities = capabilities,
-        })
 
         -- Emmet
         start_on_filetypes(

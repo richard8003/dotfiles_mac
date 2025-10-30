@@ -18,6 +18,9 @@ macos-titlebar-style = hidden
 # font
 font-size = 16
 
+# background = "#000000"
+# background = "#242124"
+
 # background opacity
 background-opacity = 1
 
@@ -26,4 +29,10 @@ cursor-style = block
 cursor-style-blink = true
 
 
-
+background-image = ./neo.png
+# background-image = ./vim.png
+background-image-opacity = 0.2
+background-image-position = center
+background-image-fit = none
+# background-image-repeat = no-repeat
+# background-image-repeat = false

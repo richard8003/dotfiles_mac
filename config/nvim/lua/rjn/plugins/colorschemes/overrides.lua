@@ -4,14 +4,14 @@ return {
     vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#7B7B7B", bold = true }), -- red pastel
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" }),
     vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#ffc4fb" }),
-    vim.cmd([[
-  highlight CursorLine guibg=#4b4b4b guifg=NONE
-]]),
+    vim.api.nvim_set_hl(0, "CursorLine", { bg = "#2A2940" }), -- pick a faint bg
+    -- 2A2940
+    vim.api.nvim_set_hl(0, "Cursor", { reverse = true, bg = "NONE" }),
 
     -- highlight Cursor guifg=white guibg=#547998
     vim.cmd([[
     highlight Cursor guifg=white guibg=#636DA6
-    highlight iCursor guifg=white guibg=green
+    highlight iCursor guifg=white guibg=pink
     " highlight iCursor guifg=white guibg=white
     highlight qCursor guifg=white guibg=orange
 

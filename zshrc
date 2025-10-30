@@ -95,3 +95,7 @@ if [ -f '/Users/rjn/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/U
 
 # Created by `pipx` on 2025-08-26 08:58:00
 export PATH="$PATH:/Users/rjn/.local/bin"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
