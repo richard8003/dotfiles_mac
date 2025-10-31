@@ -5,7 +5,7 @@ vim.keymap.set("v", "j", "k")
 vim.keymap.set("v", "k", "j")
 
 -- terminal mode
-vim.keymap.set('t', '<ESC>', [[<C-\><C-n>]], { noremap = true })
+vim.keymap.set("t", "<ESC>", [[<C-\><C-n>]], { noremap = true })
 
 vim.keymap.set("i", "{{", "{}<ESC>i", { noremap = false, silent = false })
 vim.keymap.set("i", "}}", "{}<ESC>i<CR><ESC>O", { noremap = false, silent = false })
@@ -39,8 +39,6 @@ vim.api.nvim_set_keymap("v", "<Leader>ra", ":%s/", { noremap = true, silent = fa
 vim.keymap.set("n", "<leader>jj", ":!node %<CR>")
 -- vim.keymap.set('n', '<leader>ts', ':!ts-node %<CR>')
 
-
-
 -- more adjusthents for colemak-dh
 vim.keymap.set("n", "<c-m>", ":wincmd h<CR>")
 vim.api.nvim_set_keymap("n", "m", "h", { noremap = true })
@@ -60,7 +58,7 @@ vim.keymap.set("n", "Y", "y$")
 vim.keymap.set("n", "<leader>w", vim.lsp.buf.format)
 
 -- File explorer
-vim.keymap.set("n", "<leader>tt", ":vs<CR>")
+vim.keymap.set("n", "<leader>tt", ":vs<CR> || :Ex<CR>")
 -- vim.keymap.set("n", "<leader>tt", ":vs<CR> || :Ex<CR>")
 vim.keymap.set("n", "<leader>t", ":Ex<CR>")
 -- vim.keymap.set("n", "<leader>t", ":NvimTreeToggle<CR>")
@@ -68,7 +66,6 @@ vim.keymap.set("n", "<leader>t", ":Ex<CR>")
 -- Better tabbing
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
-
 
 -- Open register list
 vim.keymap.set("n", "re", ":reg<CR>", { silent = true })
@@ -78,7 +75,7 @@ vim.keymap.set("n", "re", ":reg<CR>", { silent = true })
 vim.keymap.set("n", "›", ":vertical resize +3<CR>")
 vim.keymap.set("n", "‹", ":vertical resize -3<CR>")
 vim.keymap.set("n", "π", ":resize +3<CR>")
-vim.keymap.set("n", "¸", ":resize -3<CR>")
+vim.keymap.set("n", "¸", ":resize -3<C>")
 
 
 -- Close buffer
@@ -119,17 +116,17 @@ vim.keymap.set("n", "<tab>", ":bnext<CR>")
 vim.keymap.set("n", "<s-tab>", ":bprev<CR>")
 
 -- GIT
-local function git_push()
-    vim.cmd(':silent !git add %')
-    vim.cmd(':silent !git commit -m "foobar"')
-    vim.cmd(':silent !git push')
+local function git_pu)
+    vim.cmd(':silent !git add)
+    vim.cmd(':silent !git commit -m "fooba)
+    vim.cmd(':silent !git pu)
     print("Git: pushed current file...")
 end
 
-local function git_push_all()
-    vim.cmd(':silent !git add .')
-    vim.cmd(':silent !git commit -m "foobar"')
-    vim.cmd(':silent !git push')
+local function git_push_a)
+    vim.cmd(':silent !git add)
+    vim.cmd(':silent !git commit -m "fooba)
+    vim.cmd(':silent !git pu)
     print("Git: pushed all")
 end
 
@@ -142,15 +139,13 @@ vim.keymap.set("n", "<c-j>", ":wincmd k<CR>", { silent = true })
 vim.keymap.set("n", "<c-h>", ":wincmd h<CR>", { silent = true })
 vim.keymap.set("n", "<c-l>", ":wincmd l<CR>", { silent = true })
 
-vim.keymap.set("i", "<c-s>", "<esc>bdw", { silent = true })
+vim.keymap.set("i", "<c-s>", "<esc>bdw", { silent = tue })
 
 
-function ToggleQuickfix()
-    local qf_exists = vim.fn.getqflist({ winid = 0 }).winid ~= 0
-    if qf_exists then
-        vim.cmd("cclose")
-    else
-        vim.cmd("copen")
+function ToggleQuickf)
+    local qf_exists = vim.fn.getqflist({ winid = 0 }).winid 0
+    if qf_exists t      vim.cmd("cclo)
+   	e      vim.cmd("cop)
     end
 end
 
