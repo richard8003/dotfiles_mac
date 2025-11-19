@@ -65,11 +65,6 @@ hs.hotkey.bind({ "cmd", "alt", "ctrl" }, "L", function()
 	sendString("account")
 end)
 
--- Thank you for your email.
--- hs.hotkey.bind({ "cmd", "alt", "ctrl" }, "M", function()
--- 	sendString("Thank you for your email.")
---
--- end)
 hs.hotkey.bind({ "cmd", "alt", "ctrl" }, "M", function()
 	hs.eventtap.keyStrokes("Thank you for your email.")
 	hs.timer.doAfter(0.05, function()
@@ -105,4 +100,14 @@ end)
 -- admin
 hs.hotkey.bind({ "cmd", "alt", "ctrl" }, "T", function()
 	sendString("admin")
+end)
+
+-- johansson@smoothcomp.com 
+hs.hotkey.bind({ "cmd", "alt", "ctrl" }, "U", function()
+	sendString("johansson@smoothcomp.com")
+end)
+
+-- richard.johansson.8003@gmail.com
+hs.hotkey.bind({ "cmd", "alt", "ctrl" }, "V", function()
+	sendString("richard.johansson.8003@gmail.com")
 end)

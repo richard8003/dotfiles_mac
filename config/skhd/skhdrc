@@ -14,12 +14,17 @@ alt - s : open -a "/Applications/Google Chrome.app"
 alt - a : open -a "/Applications/Spotify.app" 
 alt - t : open -a "/Applications/Discord.app" 
 alt - p : open -a "/Applications/WhatsApp.app" 
-alt - w : open -a "/Applications/Firefox.app"
+# alt - w : open -a "/Applications/Firefox.app"
 alt - d : open -a "Messages"
 alt - g : open -a "ChatGPT"
 alt - b : open -a "Photos"
 
 alt - q : open -a ~/scripts/flameshot-ocr.sh
+alt - w :open -a ~/.config/aerospace/100.sh
+alt - f :open -a ~/.config/aerospace/30.sh
+# cmd + ctrl + shift - i :open -a ~/.config/aerospace/100.sh
+# cmd + ctrl + shift - e :open -a ~/.config/aerospace/30.sh
+ 
 # alt - v : open -a ~/scripts/test.sh
 
 
