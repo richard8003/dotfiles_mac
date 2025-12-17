@@ -8,28 +8,31 @@ window-padding-y = 5
 window-padding-x = 8
 
 # theme & font
-theme = "Catppuccin mocha"
-# font-size = 16
-# font = "JetBrains Mono 10"      # om terminalen stödjer font-val
-# font-family = "Pixel Code Nerd Font"
-font-family = "BigBlueTerm437 Nerd Font Mono"
-# font-family = "Pixel Code Nerd Font"
+# theme = "HaX0R Gr33N"
+# theme = "ENCOM"
+# theme = "Catppuccin mocha"
+theme = "Wombat"
 font-size = 12
-# font-kerning = false
-# font-thin-strokes = false
 
 # background
-background = "#242124"
-background-opacity = 1
+# background = "#242124"
+# background-opacity = 0.95
+# background = "#000000"
 
 # cursor
 cursor-style = block
 cursor-style-blink = true
 
 # background image (valfritt)
-background-image = ./ghost.png
+# background-image = ./ghost.png
 # background-image = ./neo_2.png
 # background-image = ./neo.png
-background-image-opacity = 0.3
-background-image-position = center-right
+background-image-opacity = 0.1
+background-image-position = top-right
+# background-image-position = center-right
 background-image-fit = none
+
+
+# custom-shader = /Users/rjn/.config/ghostty/shaders/green-crt.glsl
+# custom-shader = /Users/rjn/.config/ghostty/shaders/blue-crt.glsl
+custom-shader = /Users/rjn/.config/ghostty/shaders/retro-term.glsl.glsl

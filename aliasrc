@@ -11,3 +11,4 @@ alias cloudSqlSmoothcomp="cloud_sql_proxy -instances=smoothcomp-83609:europe-wes
 alias ls='ls -al'
 alias rm='trash'
 alias lsc='eza -al --no-permissions --no-user --no-filesize'
+alias cnotes="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Notes"
