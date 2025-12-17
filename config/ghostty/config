@@ -33,6 +33,3 @@ background-image-position = top-right
 background-image-fit = none
 
 
-# custom-shader = /Users/rjn/.config/ghostty/shaders/green-crt.glsl
-# custom-shader = /Users/rjn/.config/ghostty/shaders/blue-crt.glsl
-custom-shader = /Users/rjn/.config/ghostty/shaders/retro-term.glsl.glsl
