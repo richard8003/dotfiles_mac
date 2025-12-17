@@ -1,8 +1,8 @@
 -- switching j and k for colemac navigation
-vim.keymap.set("n", "j", "k")
-vim.keymap.set("n", "k", "j")
-vim.keymap.set("v", "j", "k")
-vim.keymap.set("v", "k", "j")
+-- vim.keymap.set("n", "j", "k")
+-- vim.keymap.set("n", "k", "j")
+-- vim.keymap.set("v", "j", "k")
+-- vim.keymap.set("v", "k", "j")
 
 -- terminal mode
 vim.keymap.set("t", "<ESC>", [[<C-\><C-n>]], { noremap = true })

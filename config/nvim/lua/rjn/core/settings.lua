@@ -6,10 +6,10 @@ vim.g.loaded_perl_provider = 0
 
 -- netrw settigs
 -- vim.cmd("let g:netrw_liststyle = 3")                                -- tree view
-vim.cmd("let g:netrw_banner = 0")                                   -- hide the banner
-vim.cmd("let g:netrw_altv = 1")                                     -- open splits to the right
-vim.cmd("let g:netrw_browse_split = 0")                             -- open splits to the right
-vim.cmd("let g:netrw_winsize= 20")                                  -- open splits to the right
+vim.cmd("let g:netrw_banner = 0") -- hide the banner
+vim.cmd("let g:netrw_altv = 1") -- open splits to the right
+vim.cmd("let g:netrw_browse_split = 0") -- open splits to the right
+vim.cmd("let g:netrw_winsize= 20") -- open splits to the right
 -- vim.cmd("let g:netrw_list_hide = netrw_gitignore#Hide()")
 vim.cmd("let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'") -- make line numbers visible at the start ov nvim (to be able to see them in netrw).
 
@@ -21,13 +21,13 @@ vim.opt.termguicolors = false
 
 -- line numbers
 vim.opt.relativenumber = true -- show relative line numberkls
-vim.opt.number = true         -- shows absolute line number on cursor line (when relative number is on)
+vim.opt.number = true -- shows absolute line number on cursor line (when relative number is on)
 
 -- tabs & indentation
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.expandtab = true  -- expand tab to spaces
+vim.opt.expandtab = true -- expand tab to spaces
 vim.opt.autoindent = true -- copy indent from current line when starting new one
 vim.opt.smartindent = true
 
@@ -36,7 +36,7 @@ vim.opt.wrap = false -- disable line wrapping
 
 -- search settings
 vim.opt.ignorecase = true -- ignore case when searching
-vim.opt.smartcase = true  -- if you include mixed case in your search, assumes you want case-sensitive
+vim.opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
 
 -- this is used to center the current line vertically
 vim.opt.scrolloff = 8
@@ -54,8 +54,8 @@ vim.cmd([[ set t_Co=256 ]])
 vim.opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
 
 -- split windows
-vim.opt.splitright = true     -- split vertical window to the right
-vim.opt.splitbelow = true     -- split horizontal window to the bottom
+vim.opt.splitright = true -- split vertical window to the right
+vim.opt.splitbelow = true -- split horizontal window to the bottom
 
 vim.opt.iskeyword:append("-") -- consider string-string as whole word
 
@@ -65,11 +65,11 @@ vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
 -- mixed
-vim.opt.hlsearch = false  --Set highlight on search
-vim.opt.undofile = true   --Save undo history
+vim.opt.hlsearch = false --Set highlight on search
+vim.opt.undofile = true --Save undo history
 vim.opt.ignorecase = true --Case insensitive searching unless /C or capital in search
-vim.opt.smartcase = true  -- Smart case
-vim.opt.updatetime = 50   --Decrease update time
+vim.opt.smartcase = true -- Smart case
+vim.opt.updatetime = 50 --Decrease update time
 vim.opt.timeoutlen = 200
 vim.opt.ttimeoutlen = 10
 vim.opt.completeopt = "menuone,noinsert,noselect"
@@ -158,3 +158,43 @@ augroup END
 -- set guicursor+=i:blinkon1
 -- set guicursor+=i:blinkwait0
 -- ]])
+
+
+-- vim.api.nvim_create_autocmd("ColorScheme", {
+-- 	pattern = "elflord-soft",
+-- 	callback = function()
+-- 		local set = vim.api.nvim_set_hl
+-- 		set(0, "Normal", { bg = "NONE" })
+-- 		set(0, "NormalNC", { bg = "NONE" })
+-- 		set(0, "EndOfBuffer", { fg = "bg", bg = "NONE" })
+-- 		set(0, "Terminal", { bg = "NONE" })
+-- 		set(0, "LineNr", { bg = "NONE" })
+-- 		set(0, "SignColumn", { bg = "NONE" })
+-- 		set(0, "FoldColumn", { bg = "NONE" })
+-- 		set(0, "VertSplit", { bg = "NONE" })
+-- 	end,
+-- }),
+
+vim.cmd.colorscheme("elflord")
+
+-- Transparent background overrides
+vim.api.nvim_set_hl(0, "Normal",      { bg = "NONE" })
+vim.api.nvim_set_hl(0, "NormalNC",    { bg = "NONE" })
+vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "NONE", bg = "NONE" })
+vim.api.nvim_set_hl(0, "Terminal",    { bg = "NONE" })
+
+vim.api.nvim_set_hl(0, "LineNr",      { bg = "NONE" })
+vim.api.nvim_set_hl(0, "SignColumn",  { bg = "NONE" })
+vim.api.nvim_set_hl(0, "FoldColumn",  { bg = "NONE" })
+vim.api.nvim_set_hl(0, "VertSplit",   { bg = "NONE" })
+vim.api.nvim_set_hl(0, "TabLineFill", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "Directory", { fg = "#00ffff", bg = "NONE" })
+
+-- local set = vim.api.nvim_set_hl
+-- -- Gör netrw / listor helt transparent
+-- set(0, "CursorLine",   { bg = "NONE" })
+-- set(0, "Visual",       { bg = "NONE" })
+-- 
+-- -- (valfritt men bra)
+-- set(0, "Directory",    { bg = "NONE" })
+-- set(0, "NormalFloat",  { bg = "NONE" })
