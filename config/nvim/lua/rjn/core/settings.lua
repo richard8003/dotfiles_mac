@@ -175,7 +175,8 @@ augroup END
 -- 	end,
 -- }),
 
-vim.cmd.colorscheme("elflord")
+vim.cmd.colorscheme("default")
+-- vim.cmd.colorscheme("vim")
 
 -- Transparent background overrides
 vim.api.nvim_set_hl(0, "Normal",      { bg = "NONE" })

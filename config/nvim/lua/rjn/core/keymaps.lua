@@ -83,8 +83,8 @@ vim.keymap.set("n", "X", ":bd<CR>")
 vim.keymap.set("n", "QQ", ":q!")
 
 -- Move lines
-vim.keymap.set("v", "K", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "J", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- allows the cursor to stay in the same place while appending the line below
 -- vim.keymap.set("n", "J", "mzJ`z")
@@ -115,8 +115,14 @@ vim.keymap.set("n", "<tab>", ":bnext<CR>")
 vim.keymap.set("n", "<s-tab>", ":bprev<CR>")
 
 -- GIT
+-- local function git_push()
+-- 	vim.cmd(":silent !git add")
+-- 	vim.cmd(':silent !git commit -m "fooba"')
+-- 	vim.cmd(":silent !git push")
+-- 	print("Git: pushed current file...")
+-- end
 local function git_push()
-	vim.cmd(":silent !git add")
+	vim.cmd(":silent !git add .")
 	vim.cmd(':silent !git commit -m "fooba"')
 	vim.cmd(":silent !git push")
 	print("Git: pushed current file...")
@@ -133,12 +139,12 @@ local function git_push_all()
 	-- print("Git: pushed all")
 end
 
-vim.keymap.set("n", "<leader>p", git_push)
+vim.keymap.set("n", "<leader>pf", git_push)
 vim.keymap.set("n", "<leader>pp", git_push_all)
 
 -- pane navigation
-vim.keymap.set("n", "<c-k>", ":wincmd j<CR>", { silent = true })
-vim.keymap.set("n", "<c-j>", ":wincmd k<CR>", { silent = true })
+vim.keymap.set("n", "<c-j>", ":wincmd j<CR>", { silent = true })
+vim.keymap.set("n", "<c-k>", ":wincmd k<CR>", { silent = true })
 vim.keymap.set("n", "<c-h>", ":wincmd h<CR>", { silent = true })
 vim.keymap.set("n", "<c-l>", ":wincmd l<CR>", { silent = true })
 

@@ -26,7 +26,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 	pattern = { "*.c" },
 	callback = function()
 		-- Skelleton snippet
-		vim.keymap.set("n", "<leader>sk", ":-1read $HOME/.config/nvim/.snippets/skelleton.c<CR>3l", { silent = true })
+		vim.keymap.set("n", "<leader>sk", ":-1read $HOME/.config/nvim/.snippets/skeleton.c<CR>3l", { silent = true })
 		-- Run current file
 		vim.keymap.set("n", "ru", ":!gcc -o %:r.out % && ./%:r.out<CR>")
 	end,
@@ -40,6 +40,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 		vim.keymap.set("i", "fff", "fmt.Printf()<Esc>i")
 		vim.keymap.set("i", "pf", "fmt.Printf()<Esc>i")
 		vim.keymap.set("i", "::", ":= ")
+		vim.keymap.set("n", "<leader>ll", ":-1read $HOME/.config/nvim/.snippets/skeleton.go<CR>3l", { silent = true })
 		-- vim.keymap.set("n", "ru", ":!go run %<CR>")
 		-- vim.keymap.set("n", "ru", ":w<CR>:!go run all<CR>") --Run Go file from nvim
 		vim.keymap.set("n", "ru", ":w<CR>:!go run %<CR>") --Run Go file from nvim
