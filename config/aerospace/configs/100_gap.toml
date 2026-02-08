@@ -4,7 +4,15 @@
 # You can use it to add commands that run after login to macOS user session.
 # 'start-at-login' needs to be 'true' for 'after-login-command' to work
 # Available commands: https://nikitabobko.github.io/AeroSpace/commands
-after-login-command = []
+after-startup-command = ['exec-and-forget sketchybar']
+
+# Notify Sketchybar about workspace change
+exec-on-workspace-change = ['/bin/bash', '-c',
+    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+]
+
+
+    
 
 # You can use it to add commands that run after AeroSpace startup.
 # 'after-startup-command' is run after 'after-login-command'
@@ -17,11 +25,11 @@ after-login-command = []
 #   'exec-and-forget /opt/homebrew/bin/borders active_color=0xff15f2fd inactive_color=0x00000000 width=10.0'
 # ]
 
-after-startup-command = [
+# after-startup-command = [
   # 'exec-and-forget /opt/homebrew/bin/borders active_color=0xff15f2fd inactive_color=0x00000000 width=10.0'
   # 'exec-and-forget /opt/homebrew/bin/borders active_color=0xffffffff inactive_color=0x00000000 width=20.0'
   # 'exec-and-forget /opt/homebrew/bin/borders active_color=0xffCC00FF inactive_color=0x00000000 width=10.0'
-]
+# ]
 
 
 # Start AeroSpace at login
@@ -70,11 +78,11 @@ preset = 'qwerty'
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-inner.horizontal = 5 
-inner.vertical =   5
-outer.left =       5
-outer.bottom =     5
-outer.top =        5
+inner.horizontal = 15 
+inner.vertical =   15
+outer.left =       15
+outer.bottom =     15
+outer.top =        35
 outer.right =      200
 # inner.horizontal = 10 
 # inner.vertical =   5
@@ -129,6 +137,18 @@ outer.right =      200
 #     activate
 # end tell'
 # '''
+alt-q = 'exec-and-forget /bin/zsh /Users/rjn/scripts/flameshot-ocr.sh'
+alt-w = 'exec-and-forget /bin/zsh ~/.config/aerospace/100.sh'
+alt-f = 'exec-and-forget /bin/zsh ~/.config/aerospace/30.sh'
+
+alt-r = 'exec-and-forget open -a "Ghostty"'
+alt-g = 'exec-and-forget open -a "ChatGPT"'
+alt-s = 'exec-and-forget open -a "Google Chrome"'
+alt-a = 'exec-and-forget open -a "Spotify"'
+alt-t = 'exec-and-forget open -a "Discord"'
+alt-p = 'exec-and-forget open -a "WhatsApp"'
+alt-d = 'exec-and-forget open -a "Messages"'
+alt-b = 'exec-and-forget open -a "Photos"'
 
 alt-ctrl-h = 'split horizontal'
 alt-ctrl-v = 'split vertical'
