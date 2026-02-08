@@ -175,22 +175,58 @@ augroup END
 -- 	end,
 -- }),
 
-vim.cmd.colorscheme("default")
--- vim.cmd.colorscheme("vim")
+vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = function()
+    local set = vim.api.nvim_set_hl
+
+    -- Core transparency
+    set(0, "Normal",        { bg = "NONE" })
+    set(0, "NormalNC",      { bg = "NONE" })
+    set(0, "EndOfBuffer",   { bg = "NONE" })
+    set(0, "Terminal",      { bg = "NONE" })
+
+    set(0, "LineNr",        { bg = "NONE" })
+    set(0, "SignColumn",    { bg = "NONE" })
+    set(0, "FoldColumn",    { bg = "NONE" })
+    set(0, "VertSplit",     { bg = "NONE" })
+
+    -- Floating windows (VIKTIGT)
+    set(0, "NormalFloat",   { bg = "NONE" })
+    set(0, "FloatBorder",   { bg = "NONE" })
+
+    -- Cursor / selection
+    -- set(0, "CursorLine",    { bg = "NONE" })
+    -- set(0, "CursorColumn",  { bg = "NONE" })
+    -- set(0, "Visual",        { bg = "NONE" })
+
+    -- Diagnostics
+    set(0, "DiagnosticVirtualTextError", { bg = "NONE" })
+    set(0, "DiagnosticVirtualTextWarn",  { bg = "NONE" })
+    set(0, "DiagnosticVirtualTextInfo",  { bg = "NONE" })
+    set(0, "DiagnosticVirtualTextHint",  { bg = "NONE" })
+
+    -- Quickfix / grep
+    set(0, "QuickFixLine",  { bg = "NONE" })
+  end,
+})
+
+-- vim.cmd.colorscheme("default")
+vim.cmd.colorscheme("vim")
 
 -- Transparent background overrides
-vim.api.nvim_set_hl(0, "Normal",      { bg = "NONE" })
-vim.api.nvim_set_hl(0, "NormalNC",    { bg = "NONE" })
-vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "NONE", bg = "NONE" })
-vim.api.nvim_set_hl(0, "Terminal",    { bg = "NONE" })
-
-vim.api.nvim_set_hl(0, "LineNr",      { bg = "NONE" })
-vim.api.nvim_set_hl(0, "SignColumn",  { bg = "NONE" })
-vim.api.nvim_set_hl(0, "FoldColumn",  { bg = "NONE" })
-vim.api.nvim_set_hl(0, "VertSplit",   { bg = "NONE" })
-vim.api.nvim_set_hl(0, "TabLineFill", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "Directory", { fg = "#00ffff", bg = "NONE" })
-
+-- vim.api.nvim_set_hl(0, "Normal",      { bg = "NONE" })
+-- vim.api.nvim_set_hl(0, "NormalNC",    { bg = "NONE" })
+-- vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "NONE", bg = "NONE" })
+-- vim.api.nvim_set_hl(0, "Terminal",    { bg = "NONE" })
+--
+-- vim.api.nvim_set_hl(0, "LineNr",      { bg = "NONE" })
+-- vim.api.nvim_set_hl(0, "SignColumn",  { bg = "NONE" })
+-- vim.api.nvim_set_hl(0, "FoldColumn",  { bg = "NONE" })
+-- vim.api.nvim_set_hl(0, "VertSplit",   { bg = "NONE" })
+-- vim.api.nvim_set_hl(0, "TabLineFill", { bg = "NONE" })
+-- vim.api.nvim_set_hl(0, "Directory", { fg = "#00ffff", bg = "NONE" })
+--
+--
 -- local set = vim.api.nvim_set_hl
 -- -- Gör netrw / listor helt transparent
 -- set(0, "CursorLine",   { bg = "NONE" })
