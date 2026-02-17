@@ -4,12 +4,12 @@
 # You can use it to add commands that run after login to macOS user session.
 # 'start-at-login' needs to be 'true' for 'after-login-command' to work
 # Available commands: https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = ['exec-and-forget sketchybar']
+# after-startup-command = ['exec-and-forget sketchybar']
 
 # Notify Sketchybar about workspace change
-exec-on-workspace-change = ['/bin/bash', '-c',
-    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
-]
+# exec-on-workspace-change = ['/bin/bash', '-c',
+#     'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+# ]
 
 
 # You can use it to add commands that run after AeroSpace startup.
@@ -76,12 +76,12 @@ preset = 'qwerty'
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-inner.horizontal = 15 
-inner.vertical =   15
-outer.left =       15
-outer.bottom =     15
-outer.top =        35
-outer.right =      15
+inner.horizontal = 3 
+inner.vertical =   3
+outer.left =       3
+outer.bottom =     3
+outer.top =        3
+outer.right =      3
 # inner.horizontal = 10 
 # inner.vertical =   5
 # outer.left =       5
@@ -94,21 +94,15 @@ outer.right =      15
 # 'main' binding mode must be always presented
 # Fallback value (if you omit the key): mode.main.binding = {}
 [workspace-to-monitor-force-assignment]
-1 = 'main'
-2 = 'main'
-3 = 'main'
-4 = 'main'
-5 = 'main'
-6 = 'main'
-# 7 = 'main'
-# 8 = 'main'
-# 9 = 'main'
-7 = '^built-in retina display$'
-8 = '^built-in retina display$'
-9 = '^built-in retina display$'
-10 = '^built-in retina display$'
-11 = '^built-in retina display$'
-12 = '^built-in retina display$'
+9 = 'main'
+8 = 'main'
+7 = 'main'
+6 = '^built-in retina display$' 
+5 = 'main' 
+4 = 'main' 
+3 = '^built-in retina display$'
+2 = '^built-in retina display$'
+1 = '^built-in retina display$'
 
 
 [mode.main.binding]
@@ -224,28 +218,27 @@ alt-period = ['mode service', 'join-with right', 'mode main']
 
 alt-z = ['mode service', 'layout floating tiling', 'mode main']
 
-
 [mode.service.binding]
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
 f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
 backspace = ['close-all-windows-but-current', 'mode main']
 
-[[on-window-detected]]
-if.app-id = 'com.spotify.client'
-run = 'move-node-to-workspace 8' 
+# [[on-window-detected]]
+# if.app-id = 'com.spotify.client'
+# run = 'move-node-to-workspace 8' 
 
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
-run = 'move-node-to-workspace 1' 
+run = 'move-node-to-workspace 7' 
 
-[[on-window-detected]]
-if.app-id = 'org.mozilla.firefox'
-run = 'move-node-to-workspace 5' 
-
-[[on-window-detected]]
-if.app-id = 'com.electron.cypress'
-run = 'move-node-to-workspace 6' 
+# [[on-window-detected]]
+# if.app-id = 'org.mozilla.firefox'
+# run = 'move-node-to-workspace 5' 
+#
+# [[on-window-detected]]
+# if.app-id = 'com.electron.cypress'
+# run = 'move-node-to-workspace 7' 
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Preview'
@@ -257,31 +250,31 @@ run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.google.Chrome'
-run = 'move-node-to-workspace 2' 
+run = 'move-node-to-workspace 8' 
 
 [[on-window-detected]]
 if.app-id = 'com.openai.chat'
-run = 'move-node-to-workspace 3' 
+run = 'move-node-to-workspace 9' 
 
-[[on-window-detected]]
-if.app-id = 'com.autodesk.fusion360'
-run = ['layout floating', 'move-node-to-workspace 6'] 
+# [[on-window-detected]]
+# if.app-id = 'com.autodesk.fusion360'
+# run = ['layout floating', 'move-node-to-workspace 6'] 
 
-[[on-window-detected]]
-if.app-id = 'org.kicad.kicad'
-run = ['layout floating', 'move-node-to-workspace 5']
+# [[on-window-detected]]
+# if.app-id = 'org.kicad.kicad'
+# run = ['layout floating', 'move-node-to-workspace 5']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.MobileSMS'
-run = ['layout tiling', 'move-node-to-workspace 7']
+run = ['layout tiling', 'move-node-to-workspace 6']
 
 [[on-window-detected]]
 if.app-id = 'com.hnc.Discord'
-run = ['layout tiling', 'move-node-to-workspace 7']
+run = ['layout tiling', 'move-node-to-workspace 6']
 
 [[on-window-detected]]
 if.app-id = 'net.whatsapp.WhatsApp'
-run = ['layout tiling', 'move-node-to-workspace 7']
+run = ['layout tiling', 'move-node-to-workspace 6']
 
 
 # 33807 | net.whatsapp.WhatsApp                           | ‎WhatsApp
@@ -297,3 +290,4 @@ run = ['layout tiling', 'move-node-to-workspace 7']
 # 38245 | com.openai.chat                                 | ChatGPT
 # 81472 | com.apple.LocalAuthentication.UIAgent           | coreautha
 # 86862 | org.flameshot.Flameshot                         | Flameshot
+
