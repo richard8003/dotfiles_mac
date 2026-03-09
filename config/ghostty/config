@@ -16,7 +16,7 @@ font-size = 12
 
 # background
 background = "#242124"
-# background-opacity = 0.95
+background-opacity = 0.95
 # background = "#000000"
 
 # cursor

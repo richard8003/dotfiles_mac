@@ -82,6 +82,6 @@ return {
 		-- vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#51B3EC", bold = true })
 		-- vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#FB508F", bold = true })
 		require("rjn.plugins.colorschemes.overrides")
-		vim.cmd("colorscheme elflord-soft")
+		-- vim.cmd("colorscheme elflord-soft")
 	end,
 }
