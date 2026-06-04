@@ -25,8 +25,7 @@ vim.keymap.set("n", "tn", ":tabnew<CR>", { noremap = false, silent = true })
 --Remove the highligten search text
 vim.keymap.set("n", "<ESC>", ":noh<CR>", { silent = true })
 
---Replace
-vim.api.nvim_set_keymap("n", "<Leader>r", ":s/", { noremap = true, silent = false })
+--Replace (<leader>r är reserverad för mini.pick oldfiles)
 vim.api.nvim_set_keymap("v", "<Leader>r", ":s/", { noremap = true, silent = false })
 vim.api.nvim_set_keymap("n", "<Leader>ra", ":%s/", { noremap = true, silent = false })
 vim.api.nvim_set_keymap("v", "<Leader>ra", ":%s/", { noremap = true, silent = false })
@@ -75,7 +74,7 @@ vim.keymap.set("n", "re", ":reg<CR>", { silent = true })
 vim.keymap.set("n", "›", ":vertical resize +3<CR>")
 vim.keymap.set("n", "‹", ":vertical resize -3<CR>")
 vim.keymap.set("n", "π", ":resize +3<CR>")
-vim.keymap.set("n", "¸", ":resize -3<C>")
+vim.keymap.set("n", "¸", ":resize -3<CR>")
 
 -- Close buffer
 vim.keymap.set("n", "X", ":bd<CR>")
@@ -108,7 +107,6 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
-vim.keymap.set("n", "<leader>d", [["_d]])
 
 -- tab between buffers
 vim.keymap.set("n", "<tab>", ":bnext<CR>")
@@ -149,8 +147,9 @@ vim.keymap.set("n", "<c-h>", ":wincmd h<CR>", { silent = true })
 vim.keymap.set("n", "<c-l>", ":wincmd l<CR>", { silent = true })
 
 vim.keymap.set("i", "<c-s>", "<esc>bdw", { silent = true })
+vim.keymap.set("i", "<M-BS>", "<C-w>", { silent = true })
 
-function ToggleQuickfix()
+local function ToggleQuickfix()
 	-- Kolla om quickfix-fönstret redan är öppet
 	local winid = vim.fn.getqflist({ winid = 0 }).winid
 	if winid ~= 0 then
@@ -160,6 +159,6 @@ function ToggleQuickfix()
 	end
 end
 
-vim.keymap.set("n", "<leader>qo", ":lua ToggleQuickfix()<CR>", { silent = true })
+vim.keymap.set("n", "<leader>qo", ToggleQuickfix, { silent = true })
 vim.keymap.set("n", "<leader>n", ":cnext<CR>", { silent = true })
 vim.keymap.set("n", "<leader>p", ":cprev<CR>", { silent = true })

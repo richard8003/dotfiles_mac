@@ -1,5 +1,4 @@
 -- vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
-vim.opt.timeoutlen = 200
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.loaded_perl_provider = 0
@@ -15,9 +14,6 @@ vim.cmd("let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'") -- make line
 
 vim.opt.path:append("**")
 
--- optionally enable 24-bit colour
--- vim.opt.termguicolors = true
-vim.opt.termguicolors = false
 
 -- line numbers
 vim.opt.relativenumber = true -- show relative line numberkls
@@ -33,10 +29,6 @@ vim.opt.smartindent = true
 
 -- line wrapping
 vim.opt.wrap = false -- disable line wrapping
-
--- search settings
-vim.opt.ignorecase = true -- ignore case when searching
-vim.opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
 
 -- this is used to center the current line vertically
 vim.opt.scrolloff = 8
@@ -66,7 +58,6 @@ vim.opt.undofile = true
 
 -- mixed
 vim.opt.hlsearch = false --Set highlight on search
-vim.opt.undofile = true --Save undo history
 vim.opt.ignorecase = true --Case insensitive searching unless /C or capital in search
 vim.opt.smartcase = true -- Smart case
 vim.opt.updatetime = 50 --Decrease update time
@@ -84,7 +75,7 @@ vim.cmd([[augroup remember_folds
 augroup END]])
 
 -- This makes comments NOT continue when moving to the next li
-vim.cmd([[ autocmd FileType * set formatoptions-=cro") ]])
+vim.cmd([[ autocmd FileType * set formatoptions-=cro ]])
 
 -- Syntax highlighting for JSON
 vim.cmd([[
@@ -130,6 +121,9 @@ vim.cmd([[
 vim.cmd([[
 autocmd BufWinEnter,WinEnter term://* startinsert
 ]])
+
+
+
 -- START NETRW WHEN VIM STARTS
 -- Checks if there is a file open after Vim starts up,
 -- and if not, open the current working directory in Netrw.

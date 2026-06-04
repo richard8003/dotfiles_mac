@@ -42,12 +42,12 @@ return {
 
         local pick = require("mini.pick")
 
-        function ClearQuickfix()
+        local function ClearQuickfix()
             vim.fn.setqflist({}, "r")
             print("Quickfix list cleared")
         end
 
-        function GrepToQuickfix()
+        local function GrepToQuickfix()
             pick.builtin.grep_live({
                 action = function(items)
                     if not items or #items == 0 then
@@ -198,8 +198,8 @@ return {
         vim.keymap.set("n", "<leader>g", ":Pick grep<CR>", {})
         vim.keymap.set("n", "<leader>b", ":Pick buffers<CR>", {})
         vim.keymap.set("n", "<leader>r", ":Pick oldfiles<CR>", {})
-        vim.keymap.set("n", "<leader>h", ":Pack help<CR>", {})
+        vim.keymap.set("n", "<leader>h", ":Pick help<CR>", {})
+        vim.keymap.set("n", "<leader>lg", GrepToQuickfix, { silent = true })
+        vim.keymap.set("n", "<leader>qq", ClearQuickfix, { silent = true })
     end,
-    vim.keymap.set("n", "<leader>lg", ":lua GrepToQuickfix()<CR>", { silent = true }),
-    vim.keymap.set("n", "<leader>qq", ":lua ClearQuickfix()<CR>", { silent = true }),
 }
